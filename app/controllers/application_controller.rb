@@ -17,6 +17,4 @@ class ApplicationController < ActionController::Base
       'auth'
     end
   end
-
-
 end
