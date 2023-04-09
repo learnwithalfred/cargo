@@ -10,8 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_121439) do
-  create_table "users", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_205638) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
+  enable_extension "plpgsql"
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -25,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_121439) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.integer "role", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
