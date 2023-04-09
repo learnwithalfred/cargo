@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   layout :set_layout
 
+  def after_sign_in_path_for(_resource)
+    case current_user.role
+    when 'admin'
+      admin_dashboard_path
+    when 'driver'
+      driver_dashboard_path
+    else
+      root_path
+    end
+  end
+
+
   protected
 
   def configure_permitted_parameters
