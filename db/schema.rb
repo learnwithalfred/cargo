@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_09_205638) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_214542) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "gps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "container_no", null: false
+    t.float "weight"
+    t.string "vehicle_reg"
+    t.string "hauller"
+    t.boolean "is_approved", default: false, null: false
+    t.string "customer"
+    t.datetime "date_in", default: "2023-04-09 21:44:40"
+    t.datetime "date_out"
+    t.string "line"
+    t.string "size"
+    t.string "depot"
+    t.string "sheet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "creator_id", null: false
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
