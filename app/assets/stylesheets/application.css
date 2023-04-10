@@ -16,6 +16,7 @@
 
 .main-container {
   margin: 0 16px;
+  min-height: 85vh;
 }
 
 .auth_container {
