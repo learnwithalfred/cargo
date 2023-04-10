@@ -1,77 +1,86 @@
 <%= form_with(model: gp, class: "contents") do |form| %>
-  <% if gp.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(gp.errors.count, "error") %> prohibited this gp from being saved:</h2>
+<% if gp.errors.any? %>
+<div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+  <h2><%= pluralize(gp.errors.count, "error") %> prohibited this gp from being saved:</h2>
 
-      <ul>
-        <% gp.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% gp.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+    <form action="#">
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
 
-  <div class="my-5">
-    <%= form.label :container_no %>
-    <%= form.text_field :container_no, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <div class="w-full">
+          <label for="Container_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Container
+            Number</label>
+          <%= form.text_field :container_no, id:"Container_number", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Product Container_number" %>
+
+        </div>
+        <div class="w-full">
+          <label for="weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Weight</label>
+          <%= form.text_field :weight, id:"weight", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Weight" %>
+        </div>
+
+
+        <div class="w-full">
+          <label for="Vehicle_registration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vehicle
+            Registration Number</label>
+          <%= form.text_field :vehicle_reg, id:"Vehicle_registration", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Vehicle Registration Number" %>
+
+        </div>
+        <div class="w-full">
+          <label for="hauller" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hauler</label>
+          <%= form.text_field :hauller, id:"hauller", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Hauler" %>
+        </div>
+        <div class="w-full">
+          <%= form.label :line, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+          <%= form.text_field :line, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Product Container_number" %>
+        </div>
+
+        <div class="w-full">
+          <%= form.label :size, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+          <%= form.text_field :size, type:"number", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Item Size(kg) " %>
+        </div>
+
+        <div class="w-full">
+          <%= form.label :depot, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+          <%= form.text_field :depot, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Product Container_number" %>
+        </div>
+
+
+        <div class="w-full">
+          <%= form.label :customer, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+          <%= form.text_field :customer, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Product Container_number" %>
+        </div>
+
+        <div class="w-full">
+          <%= form.label :date_in, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+          <%= form.datetime_field :date_in, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder:"Product Container_number" %>
+        </div>
+
+        <!-- <div>
+          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+          <select id="category"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option selected="">Select category</option>
+            <option value="TV">TV/Monitors</option>
+            <option value="PC">PC</option>
+            <option value="GA">Gaming/Console</option>
+            <option value="PH">Phones</option>
+          </select>
+        </div> -->
+      
+      </div>
+      <%= form.submit "Save Data", class: "inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" %>
+
+
+    </form>
   </div>
+</section>
 
-  <div class="my-5">
-    <%= form.label :weight %>
-    <%= form.text_field :weight, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :vehicle_reg %>
-    <%= form.text_field :vehicle_reg, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :hauller %>
-    <%= form.text_field :hauller, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :is_approved %>
-    <%= form.check_box :is_approved, class: "block mt-2 h-5 w-5" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :customer %>
-    <%= form.text_field :customer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :date_in %>
-    <%= form.datetime_field :date_in, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :date_out %>
-    <%= form.datetime_field :date_out, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :line %>
-    <%= form.text_field :line, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :size %>
-    <%= form.text_field :size, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :depot %>
-    <%= form.text_field :depot, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :sheet %>
-    <%= form.text_field :sheet, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
 <% end %>
