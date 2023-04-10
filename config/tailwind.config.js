@@ -4,6 +4,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
+    './node_modules/flowbite/**/*.js',
   ],
   safelist: [
     'w-64',
@@ -98,5 +99,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+    require('flowbite/plugin'),
   ],
 };
