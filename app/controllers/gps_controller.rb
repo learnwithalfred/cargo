@@ -6,8 +6,12 @@ class GpsController < ApplicationController
     @gps = Gp.all
   end
 
-  # GET /gps/1 or /gps/1.json
   def show
+  end
+
+
+  def my_records
+    @gps = Gp.where(creator_id: current_user.id) || gps.where(sheet: current_user.id) 
   end
 
   # GET /gps/new
@@ -22,14 +26,13 @@ class GpsController < ApplicationController
   # POST /gps or /gps.json
   def create
     @gp = Gp.new(gp_params)
-
+    @gp.sheet = current_user.id
+    @gp.creator_id = current_user.id
     respond_to do |format|
       if @gp.save
         format.html { redirect_to gp_url(@gp), notice: "Gp was successfully created." }
-        format.json { render :show, status: :created, location: @gp }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @gp.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,6 +68,6 @@ class GpsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gp_params
-      params.require(:gp).permit(:container_no, :weight, :vehicle_reg, :hauller, :is_approved, :customer, :date_in, :date_out, :line, :size, :depot, :sheet)
+      params.require(:gp).permit(:container_no, :weight, :vehicle_reg, :hauller, :is_approved, :customer, :date_in, :date_out, :line, :size, :depot)
     end
 end
