@@ -1,1 +1,1 @@
-json.array! @gps, partial: "gps/gp", as: :gp
+json.array! @gps, partial: 'gps/gp', as: :gp

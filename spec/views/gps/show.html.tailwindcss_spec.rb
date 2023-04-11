@@ -1,22 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe "gps/show", type: :view do
+RSpec.describe 'gps/show', type: :view do
   before(:each) do
     assign(:gp, Gp.create!(
-      container_no: "Container No",
-      weight: 2.5,
-      vehicle_reg: "Vehicle Reg",
-      hauller: "Hauller",
-      is_approved: false,
-      customer: "Customer",
-      line: "Line",
-      size: "Size",
-      depot: "Depot",
-      sheet: "Sheet"
-    ))
+                  container_no: 'Container No',
+                  weight: 2.5,
+                  vehicle_reg: 'Vehicle Reg',
+                  hauller: 'Hauller',
+                  is_approved: false,
+                  customer: 'Customer',
+                  line: 'Line',
+                  size: 'Size',
+                  depot: 'Depot',
+                  sheet: 'Sheet'
+                ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Container No/)
     expect(rendered).to match(/2.5/)

@@ -1,1 +1,1 @@
-json.partial! "gps/gp", gp: @gp
+json.partial! 'gps/gp', gp: @gp

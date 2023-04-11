@@ -12,94 +12,91 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/gps", type: :request do
-  
+RSpec.describe '/gps', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Gp. As you add validations to Gp, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Gp.create! valid_attributes
       get gps_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       gp = Gp.create! valid_attributes
       get gp_url(gp)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_gp_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       gp = Gp.create! valid_attributes
       get edit_gp_url(gp)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Gp" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Gp' do
+        expect do
           post gps_url, params: { gp: valid_attributes }
-        }.to change(Gp, :count).by(1)
+        end.to change(Gp, :count).by(1)
       end
 
-      it "redirects to the created gp" do
+      it 'redirects to the created gp' do
         post gps_url, params: { gp: valid_attributes }
         expect(response).to redirect_to(gp_url(Gp.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Gp" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Gp' do
+        expect do
           post gps_url, params: { gp: invalid_attributes }
-        }.to change(Gp, :count).by(0)
+        end.to change(Gp, :count).by(0)
       end
 
-    
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post gps_url, params: { gp: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested gp" do
+      it 'updates the requested gp' do
         gp = Gp.create! valid_attributes
         patch gp_url(gp), params: { gp: new_attributes }
         gp.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the gp" do
+      it 'redirects to the gp' do
         gp = Gp.create! valid_attributes
         patch gp_url(gp), params: { gp: new_attributes }
         gp.reload
@@ -107,26 +104,24 @@ RSpec.describe "/gps", type: :request do
       end
     end
 
-    context "with invalid parameters" do
-    
+    context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         gp = Gp.create! valid_attributes
         patch gp_url(gp), params: { gp: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested gp" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested gp' do
       gp = Gp.create! valid_attributes
-      expect {
+      expect do
         delete gp_url(gp)
-      }.to change(Gp, :count).by(-1)
+      end.to change(Gp, :count).by(-1)
     end
 
-    it "redirects to the gps list" do
+    it 'redirects to the gps list' do
       gp = Gp.create! valid_attributes
       delete gp_url(gp)
       expect(response).to redirect_to(gps_url)
