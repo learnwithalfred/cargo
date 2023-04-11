@@ -1,0 +1,12 @@
+<% if not current_page?(root_path) %>
+<div class="fixed bottom-0 left-0 py-16 pl-4">
+    <%= link_to :back, class:"flex items-center text-blue-600 hover:text-blue-800" do %>
+    <svg class="h-6 w-6 fill-current mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L9.83 12l5.58-5.59z" />
+    </svg>
+    Back
+    </button>
+</div>
+<% end %>
+
+<% end %>
