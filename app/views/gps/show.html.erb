@@ -46,7 +46,13 @@
 
         <p class="py-4">
           <strong class="block font-medium mb-1 text-2xl ">Date out:</strong>
+
+          <% if @gp.date_out.nil? %>
+            <span class="text-red-500">Not yet out</span>
+          <% else %>
+
           <%= @gp.date_out.strftime("%B %e, %Y, %l:%M%P") %>
+          <% end %>
         </p>
 
         <p class="py-4">
