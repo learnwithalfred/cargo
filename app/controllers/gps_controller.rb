@@ -39,10 +39,9 @@ class GpsController < ApplicationController
     respond_to do |format|
       if @gp.update(gp_params)
         format.html { redirect_to gp_url(@gp), notice: 'Gp was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gp }
+        
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @gp.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +52,6 @@ class GpsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to gps_url, notice: 'Gp was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
