@@ -69,7 +69,7 @@ class GpsController < ApplicationController
   end
 
   def authorize_driver!
-    return if current_user&.driver?
+    return if current_user&.driver? || current_user&.staff?
 
     redirect_to root_path, alert: 'You are not authorized to access this page.'
   end

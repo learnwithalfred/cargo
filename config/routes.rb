@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'staff/index', to: 'staff#index', as: 'staff'
   get 'gps/my_records', to: 'gps#my_records', as: 'my_records'
   resources :gps
   # Home page

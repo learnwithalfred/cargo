@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     case current_user.role
     when 'admin'
       admin_dashboard_path
-    when 'driver'
+    when 'driver' || 'staff'
       my_records_path
     else
       root_path
