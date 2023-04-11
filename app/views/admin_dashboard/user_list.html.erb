@@ -1,0 +1,7 @@
+<h1>
+  Users list
+</h1>
+<%= render partial: "shared/users_table", locals: { users: @users } %>
+
+<%= render partial: "shared/pagination", locals: { data: @users } %>
+
