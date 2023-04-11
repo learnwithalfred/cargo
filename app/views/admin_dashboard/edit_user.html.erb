@@ -1,0 +1,36 @@
+<div class="flex justify-center mt-4 px-4 py-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md">
+    <h2 class="mb-6 text-center text-2xl font-extrabold leading-9 text-gray-700">
+      Edit <%= @user.first_name %> <%= @user.last_name %>'s Role
+    </h2>
+
+<%= form_with(model: @user, url: update_user_path(@user)) do |form| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="w-full max-w-lg">
+        <div class="flex flex-wrap">
+          <div class="w-full mb-2">
+            <%= form.label :role, "Select Role of Permission For User", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+            <div class="relative">
+              <%= form.select :role, [["User", "user"], ["Admin", "admin"], ["Driver", "driver"], ["Staff", "staff"], ["Super Admin", "super_admin"]], { prompt: "Select Role of Permission For User" }, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-3 px-5" %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="">
+          <%= form.submit "Update Role Now", class: "transition bg-blue-500 hover:bg-blue-700 focus:outline-none group relative flex w-full justify-center rounded-md border border-transparent px-4 py-2 my-4 text-sm font-medium leading-5 text-white duration-150 ease-in-out" %>
+        </div>
+    <% end %>
+  </div>
+</div>

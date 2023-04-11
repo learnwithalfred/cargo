@@ -14,10 +14,10 @@ class AdminDashboardController < ApplicationController
 
   def update
     respond_to do |format|
-      if @author.update(user_role_params)
-        format.html { redirect_to authors_index_path, notice: 'author was successfully updated.' }
+      if @user.update(user_role_params)
+        format.html { redirect_to user_list_path, notice: 'User role was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit_user, status: :unprocessable_entity }
       end
     end
   end

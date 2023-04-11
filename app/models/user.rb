@@ -5,11 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates :email, presence: true, uniqueness: true, length: { minimum: 6, maximum: 255 }
-  validates :password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  enum role: %i[user driver admin]
+  enum role: %i[user driver admin staff super_admin]
   after_initialize :set_default_role, if: :new_record?
   def set_default_role
     self.role ||= :user
