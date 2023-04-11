@@ -11,19 +11,7 @@
                   #
                 </th>
                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                  Container Number
-                </th>
-                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                  Vehicle Number
-                </th>
-                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                  Hauler
-                </th>
-                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                  Approved ?
-                </th>
-                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                  Customer
+                  Our REF
                 </th>
                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                   Date in
@@ -31,8 +19,19 @@
                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                   Date out
                 </th>
+
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Customer
+                </th>
+
                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                   Line
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Size
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Hauler
                 </th>
                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                   Action
@@ -51,27 +50,23 @@
                   <%= gp.container_no %>
                 </td>
 
-                <td
-                  class="max-w-sm p-2 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
-                  <%= gp.vehicle_reg %>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.date_in.strftime("%B %e, %Y, %l:%M%P")  %>
                 </td>
                 <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= gp.hauller %>
-                </td>
-                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= gp.is_approved %>
+                  <%= gp.date_out.strftime("%B %e, %Y, %l:%M%P")  %>
                 </td>
                 <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= gp.customer %>
                 </td>
                 <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= gp.date_in.strftime("%m/%d/%Y") %>
-                </td>
-                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= gp.date_out.strftime("%m/%d/%Y") %>
-                </td>
-                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= gp.line %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.size %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.hauller %>
                 </td>
 
 
@@ -110,7 +105,6 @@
                   <% end %>
                 </td>
               </tr>
-
               <% end %>
             </tbody>
           </table>

@@ -1,67 +1,65 @@
-<div id="<%= dom_id gp %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Container no:</strong>
-    <%= gp.container_no %>
-  </p>
+ <div id="<%= dom_id gp %>" class="grid grid-cols-2 gap-8">
+  <div>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Container no:</strong>
+      <%= gp.container_no %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Weight:</strong>
-    <%= gp.weight %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Weight:</strong>
+      <%= gp.weight %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Vehicle reg:</strong>
-    <%= gp.vehicle_reg %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Vehicle reg:</strong>
+      <%= gp.vehicle_reg %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Hauller:</strong>
-    <%= gp.hauller %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Hauller:</strong>
+      <%= gp.hauller %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Is approved:</strong>
-    <%= gp.is_approved %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Is approved:</strong>
+      <%= gp.is_approved %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Customer:</strong>
-    <%= gp.customer %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Customer:</strong>
+      <%= gp.customer %>
+    </p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Date in:</strong>
-    <%= gp.date_in %>
-  </p>
+  <div>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Date in:</strong>
+      <%= gp.date_in %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Date out:</strong>
-    <%= gp.date_out %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Date out:</strong>
+      <%= gp.date_out %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Line:</strong>
-    <%= gp.line %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Line:</strong>
+      <%= gp.line %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Size:</strong>
-    <%= gp.size %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Size:</strong>
+      <%= gp.size %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Depot:</strong>
-    <%= gp.depot %>
-  </p>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Depot:</strong>
+      <%= gp.depot %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Sheet:</strong>
-    <%= gp.sheet %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this gp", gp, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this gp', edit_gp_path(gp), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+    <p class="py-4">
+      <strong class="block font-medium mb-1 text-2xl ">Sheet:</strong>
+      <%= gp.sheet %>
+    </p>
+  </div>
 </div>

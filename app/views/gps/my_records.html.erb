@@ -1,5 +1,116 @@
-<h1>
-  My Records
-</h1>
+<div class="w-full">
 
-<%= render @gps %>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto">
+      <div class="inline-block min-w-full align-middle">
+        <div class="overflow-hidden shadow">
+          <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
+            <thead class="bg-gray-100 dark:bg-gray-700">
+              <tr>
+                <th scope="col" class="px-4  text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  #
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Our REF
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                   Date in
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Date out
+                </th>
+               
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Customer
+                </th>
+                
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Line
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Size
+                </th>
+                 <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                 Hauler
+                </th>
+                <th scope="col" class="p-2 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+              <% @gps.each_with_index do |gp, index| %>
+              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                <td
+                  class="max-w-sm px-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                  <%= index+1 %>
+                </td>
+                <td
+                  class="max-w-sm p-2 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                  <%= gp.container_no %>
+                </td>
+
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.date_in.strftime("%B %e, %Y, %l:%M%P")  %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.date_out.strftime("%B %e, %Y, %l:%M%P")  %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.customer %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+ <%= gp.line %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.size %>
+                </td>
+                <td class="p-2 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= gp.hauller %>
+                </td>
+
+
+
+
+
+                <td class="p-2 space-x-2 whitespace-nowrap">
+
+                  <%= link_to edit_gp_path(gp) do %>
+
+                  <button type="button" data-modal-toggle="edit-user-modal"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                      </path>
+                      <path fill-rule="evenodd"
+                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Edit
+                  </button>
+                  <% end %>
+                  <%= link_to gp do %>
+                  <button type="button" data-modal-toggle="delete-user-modal"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-cyan-600 rounded-lg hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-900">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                      <path
+                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                    </svg>
+                    More
+                  </button>
+                  <% end %>
+                </td>
+              </tr>
+
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,77 @@
+<div class="py-16">
+    <h2 class="text-center text-4xl font-bold">
+    <%= @gp.container_no %> Details page
+  </h2>
 <div class="mx-auto md:w-2/3 w-full flex">
+
   <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+    <div class="grid grid-cols-2 gap-8">
+      <div>
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Container no:</strong>
+          <%= @gp.container_no %>
+        </p>
 
-    <%= render @gp %>
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Weight:</strong>
+          <%= @gp.weight %>
+        </p>
 
-    <%= link_to 'Edit this gp', edit_gp_path(@gp), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this gp', gp_path(@gp), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Vehicle reg:</strong>
+          <%= @gp.vehicle_reg %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Hauler:</strong>
+          <%= @gp.hauller %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Approved?:</strong>
+          <%= @gp.is_approved %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Customer:</strong>
+          <%= @gp.customer %>
+        </p>
+      </div>
+
+      <div>
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Date in:</strong>
+          <%= @gp.date_in.strftime("%B %e, %Y, %l:%M%P") %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Date out:</strong>
+          <%= @gp.date_out.strftime("%B %e, %Y, %l:%M%P") %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Line:</strong>
+          <%= @gp.line %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Size:</strong>
+          <%= @gp.size %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Depot:</strong>
+          <%= @gp.depot %>
+        </p>
+
+        <p class="py-4">
+          <strong class="block font-medium mb-1 text-2xl ">Sheet:</strong>
+          <%= @gp.sheet %>
+        </p>
+      </div>
     </div>
-    <%= link_to 'Back to gps', gps_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
   </div>
+</div>
+
 </div>
