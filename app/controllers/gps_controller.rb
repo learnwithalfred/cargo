@@ -3,7 +3,7 @@ class GpsController < ApplicationController
   before_action :authorize_driver!, only: %i[my_records]
   # GET /gps or /gps.json
   def index
-    @gps = Gp.all
+    @gps = Gp.all.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
   def show
