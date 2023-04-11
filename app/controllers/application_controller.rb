@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when 'admin'
       admin_dashboard_path
     when 'driver'
-      driver_dashboard_path
+      my_records_path
     else
       root_path
     end

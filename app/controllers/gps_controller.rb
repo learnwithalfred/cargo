@@ -1,6 +1,6 @@
 class GpsController < ApplicationController
   before_action :set_gp, only: %i[ show edit update destroy ]
-
+  before_action :authorize_driver!, only: %i[my_records]
   # GET /gps or /gps.json
   def index
     @gps = Gp.all
@@ -70,4 +70,12 @@ class GpsController < ApplicationController
     def gp_params
       params.require(:gp).permit(:container_no, :weight, :vehicle_reg, :hauller, :is_approved, :customer, :date_in, :date_out, :line, :size, :depot)
     end
+
+
+
+  def authorize_driver!
+    unless current_user&.driver?
+      redirect_to root_path, alert: "You are not authorized to access this page."
+    end
+  end
 end
