@@ -84,3 +84,6 @@ group :test do
 end
 
 gem 'tailwindcss-rails', '~> 2.0'
+
+
+gem "will_paginate", "~> 3.3"
