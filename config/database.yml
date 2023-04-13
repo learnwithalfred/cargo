@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: cargo_production
-  username: cargo
-  password: <%= ENV["CAPTIVATED_DATABASE_PASSWORD"] %>
+  database: vigotwuc_booking
+  username: vigotwuc_admin
+  password: dZR&.B^kKcmS
